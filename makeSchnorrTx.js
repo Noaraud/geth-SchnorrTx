@@ -24,7 +24,7 @@ const txparams = {
     gas: 5000000
 };
 var tx = new Tx(txparams);
-tx.pubkey = pubKey.slice(1, 33);
+tx.pubkey = pubKey;
 console.log("Non-signedTransaction:"+ JSON.stringify(tx) + "\n");
 //console.log("Transaction:"+ JSON.stringify(tx.pubkey) + "\n");
 
@@ -40,7 +40,16 @@ console.log("SignedTransaction:"+ JSON.stringify(tx) + "\n");
 
 
 const serializedTx = tx.serialize().toString('hex');
-console.log("SerializedTransaction:"+ serializedTx);
+console.log("SerializedTransaction:"+ serializedTx + "\n");
+
+console.log("Transaction r :"+ JSON.stringify(tx.r) + "\n");
+
+console.log("Transaction s :"+ JSON.stringify(tx.s) + "\n");
+
+console.log("Transaction pubkey :"+ JSON.stringify(tx.pubkey) + "\n");
+
+
+
 
 
 

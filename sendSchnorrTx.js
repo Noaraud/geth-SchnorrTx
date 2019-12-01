@@ -26,7 +26,7 @@ const txparams = {
     gas: 5000000
 };
 var tx = new Tx(txparams);
-tx.pubkey = pubKey.slice(1, 33);
+tx.pubkey = pubKey;
 console.log("Non-signedTransaction:"+ JSON.stringify(tx) + "\n");
 //console.log("Transaction:"+ JSON.stringify(tx.pubkey) + "\n");
 
