@@ -23,7 +23,7 @@ const txparams = {
     to: "0xb081a3a5b838ac8741426e51f4a8339451cec3ae",
     nonce: 0,
     value: 3000000000000000000,
-    gas: 5000000
+    gas: 500000
 };
 var tx = new Tx(txparams);
 tx.pubkey = pubKey;
