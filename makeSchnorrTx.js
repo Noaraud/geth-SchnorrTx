@@ -24,8 +24,8 @@ const txparams = {
     from: "0xe99259149c60f7f5fdb5e2b236303dfce23867a0",
     to: "0xb081a3a5b838ac8741426e51f4a8339451cec3ae",
     nonce: 0,
-    value: 300000000,
-    gas: 500000
+    value: 500000000000000000,
+    gas: 21000
 };
 var tx = new Tx(txparams);
 
@@ -34,14 +34,16 @@ tx.pubkey = pubKey;
 console.log("Non-signedTransaction:"+ JSON.stringify(tx) + "\n");
 //console.log("Transaction:"+ JSON.stringify(tx.pubkey) + "\n");
 
-console.log(tx._implementsEIP155())
+//console.log(tx._implementsEIP155())
+
+//r, s, vを入れない状態でHomestead or Frontierバージョン
 const message = tx.hash(false);
-//console.log("hash:"+JSON.stringify(message)+"\n")
-console.log(message.toString('hex'))
+
 const Signature = schnorr.sign(prikey, message);
 tx.r = Signature.slice(0,32);
 tx.s = Signature.slice(32,64);
 tx.v = 27;
+
 
 //tx.sign(prikeyhex);
 console.log("SignedTransaction:"+ JSON.stringify(tx) + "\n");
